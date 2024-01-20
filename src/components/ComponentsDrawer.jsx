@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import { Button, Grid, IconButton } from "@mui/material"
+import EditableTitle from '../utils/EditableTitle';
 
 function ComponentsDrawer({ isOpenComp, setOpenComp, addComp }) {
     function addTitle() {
+        const newTitle = <EditableTitle />
         addComp((prev) => {
-            return [...prev, 'H1']
+            return [...prev, newTitle]
         })
     }
     return (
