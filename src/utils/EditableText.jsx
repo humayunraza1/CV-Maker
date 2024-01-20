@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import PropTypes from 'prop-types';
 import { Radio, Typography } from 'antd';
 import { useState } from 'react';
 const { Paragraph } = Typography
@@ -18,5 +19,4 @@ function EditableText() {
         </Paragraph>
     )
 }
-
 export default EditableText

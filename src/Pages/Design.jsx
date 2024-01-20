@@ -12,7 +12,7 @@ function Design() {
     return (
         <div>
             <DNavbar setOpenComp={setOpenComp} />
-            <ComponentsDrawer isOpenComp={isOpenComp} setOpenComp={setOpenComp} addComp={addComp} />
+            <ComponentsDrawer isOpenComp={isOpenComp} setOpenComp={setOpenComp} onComp={onComp} addComp={addComp} />
             <div className="w-full flex justify-center">
                 <EmptyPage onComp={onComp} />
             </div>

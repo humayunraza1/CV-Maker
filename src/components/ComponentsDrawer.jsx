@@ -1,12 +1,19 @@
 import PropTypes from 'prop-types';
 import { Button, Grid, IconButton } from "@mui/material"
 import EditableTitle from '../utils/EditableTitle';
+import EditableText from '../utils/EditableText';
 
-function ComponentsDrawer({ isOpenComp, setOpenComp, addComp }) {
+function ComponentsDrawer({ isOpenComp, setOpenComp, addComp, onComp }) {
     function addTitle() {
-        const newTitle = <EditableTitle />
+        const newTitle = <EditableTitle key={onComp.length + 1} />
         addComp((prev) => {
             return [...prev, newTitle]
+        })
+    }
+    function addText() {
+        const newText = <EditableText key={onComp.length + 1} />
+        addComp((prev) => {
+            return [...prev, newText]
         })
     }
     return (
@@ -34,7 +41,7 @@ function ComponentsDrawer({ isOpenComp, setOpenComp, addComp }) {
                             </div>
                         </Grid>
                         <Grid item xs={5} className="h-[120px]">
-                            <div className="w-full text-4xl h-full flex items-center justify-center border-4 rounded-lg border-dashed hover:bg-slate-200 hover:cursor-pointer">
+                            <div className="w-full text-4xl h-full flex items-center justify-center border-4 rounded-lg border-dashed hover:bg-slate-200 hover:cursor-pointer" onClick={addText}>
                                 <h1>P</h1>
                             </div>
                         </Grid>
@@ -49,6 +56,7 @@ ComponentsDrawer.propTypes = {
     setOpenComp: PropTypes.func.isRequired,
     isOpenComp: PropTypes.bool.isRequired,
     addComp: PropTypes.func,
+    onComp: PropTypes.array
 
     // Define other props with their respective types here
 };
